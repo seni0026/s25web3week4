@@ -1,0 +1,209 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*****************************************
+				MAIN
+*****************************************/
+
+body{
+	background-color:rgb(165,125,65);	
+}
+
+.wrapper{
+	width:60vw;
+	margin:0 auto;
+	min-height:100vh;
+	box-sizing:border-box;
+	padding: 20px 15px 0;
+	border-left:15px solid rgb(88,51,0);
+	border-right:15px solid rgb(88,51,0);
+	box-shadow:0 0 10px black;
+	background-color:rgb(255,235,165);
+}
+
+header{
+	margin-bottom:25px;
+	font-family: "Indie Flower", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+
+header p{
+	margin-top:10px;
+	font-size:20px;	
+}
+
+h1{
+	font-size:76px;
+	font-family: "Permanent Marker", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;	
+}
+
+main{
+	width:100%;
+	display:flex;
+	justify-content:space-evenly;
+	flex-wrap:wrap;
+}
+
+#countHolder{
+	padding:15px;
+}
+
+#moves{
+	font-size:30px;
+	width:150px;
+	height:25px;
+	margin-right:20px;
+}
+
+/*for the cards (added by javascript)*/
+.card, .cardFlipped{
+	box-sizing:border-box;
+
+	width:7.5vw;
+	height:11.86vw;
+	
+	font-size:13vw;
+	
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	
+	margin:0.9vw;	
+	border-radius:10px;
+	box-shadow:2px 2px 4px black;
+}
+
+.cardFlipped{
+	box-shadow:8px 8px 10px black;
+		
+	border:0.3vw solid;
+}
+
+/*make the paragraph inside of the flipped cards go away...*/
+.cardFlipped p{
+	display:none;
+}
+
+/****************************************
+			MEDIA QUERIES
+****************************************/
+@media screen and (max-width:800px){
+	.wrapper{
+		width:100%;
+		border:none;	
+	}
+	
+	.card, .cardFlipped{
+		/*shift so they fit inside the 100% width*/
+		width:12.45vw;
+		height:19.67vw;
+		font-size:21vw;
+		margin:1.2vw;
+		border-width:0.5vw;
+	}
+}
+
+@media screen and (max-width:540px){
+	.card, .cardFlipped{
+		/*scale them so they sit 4x3 rather than 6x2*/
+		width:19vw;
+		height:30vw;
+		font-size:32vw;
+	}
+}
+
+
+/****************************************
+			GRADIENTS
+****************************************/
+
+.card{
+	/* Anything that doesn't support gradients */
+	background-color:black;
+	background: repeating-linear-gradient(45deg, rgb(106,0,1), rgb(106,0,1) 5%, black 6%, black 10%);
+	cursor:pointer; /*on hover, change the cursor*/	
+}
+
+.cardFlipped#red{
+	/* Safari */
+	background: radial-gradient(rgb(255,0,0) 50%, rgb(210,0,0) 90%);	
+	border-color:rgb(50,0,0);
+}
+
+.cardFlipped#blue{
+	background: radial-gradient(rgb(0,0,255) 50%, rgb(0,0,210) 90%);	
+	border-color:rgb(0,0,50);
+}
+
+.cardFlipped#green{
+	background: radial-gradient(rgb(0,255,0) 50%, rgb(0,210,0) 90%);	
+	border-color:rgb(0,50,0);
+}
+
+.cardFlipped#yellow{
+	background: radial-gradient(rgb(255,255,0) 50%, rgb(210,210,0) 90%);	
+	border-color:rgb(50,50,0);
+}
+
+.cardFlipped#purple{
+	background: radial-gradient(rgb(110,0,146) 50%, rgb(70,0,100) 90%);	
+	border-color:rgb(25,0,50);
+}
+
+.cardFlipped#orange{
+	background: radial-gradient(rgb(255,128,0) 50%, rgb(210,88,0) 90%);	
+	border-color:rgb(50,25,0);
+}
+
+/*************************************
+			OVERLAY STYLES
+*************************************/
+
+
+
+
