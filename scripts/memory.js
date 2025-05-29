@@ -15,3 +15,60 @@ let score=0, moves=0;
  * 	Scripts added in class
 ********************************/
 
+// create a for loop to create multiple cards
+for(let i = 0; i < 12; i++) {
+
+// create new card
+const card = document.createElement('div');
+
+// create a p element
+const childElement = document.createElement('p');
+
+// add text to the p element
+childElement.textContent = '?';
+
+// add the p element to the card
+card.appendChild(childElement);
+
+// add the class card
+card.classList.add('card');
+
+// when user clicks the card make something happen
+card.addEventListener('click', revealCard);
+
+// add card to page
+// first get the main element
+document.querySelector('main').appendChild(card);
+}
+
+//revealCard function to display what is on the card
+function revealCard() {
+    //check to make sure that the card isn't clicked already - that its
+    // class has not been set to cardFlipped
+    if (this.className != 'cardFlipped') {
+        // change the class name using the built in function 
+        // .className changes the existing class name and assign a new class
+        this.className = 'cardFlipped';
+        
+        // create a random number for each card 
+        let randomNum = Math.floor(Math.random() * (12 - 0.001));
+        
+        // based on the random number, assign an ID to the card (from the color pool array)
+        // the ID is a color name from the colorPool
+        this.id = colourPool[randomNum];
+
+        // add the clicked card to the array that stores cards that are clicked
+        clickedCards.push(this);
+
+        // check to see if there are 2 cards in the array
+        // then check to see if there is a match
+        if (clickedCards.length == 2){
+            // check to see if the cards have the same ID
+            if (clickedCards[0].id == clickedCards[1].id) {
+                console.log('match');
+            } else {
+                console.log('no match');
+            }
+        }
+    }
+}
