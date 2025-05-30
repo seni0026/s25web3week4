@@ -65,10 +65,54 @@ function revealCard() {
         if (clickedCards.length == 2){
             // check to see if the cards have the same ID
             if (clickedCards[0].id == clickedCards[1].id) {
-                console.log('match');
+                // call the function to display a message
+                createOverlay('match');
             } else {
-                console.log('no match');
+                createOverlay('nomatch');
+                // if its not a match, flip the card to its original state
+                clickedCards.forEach(function(thisCard) {
+                    thisCard.className = 'card';
+                    
+                })
             }
+            // make the array empty
+            clickedCards = [];
         }
     }
+}
+
+// this function shows a message to the user
+function createOverlay(messagetype) {
+    // create a div container for the overlay
+    const overlay = document.createElement('div');
+
+    // add an ID to the overlay container
+    overlay.id = 'overlay';
+
+    // get the body tag and add the element
+    document.querySelector('body').appendChild(overlay);
+
+    // add a message to the overlay
+    const overlayMessage = document.createElement('p');
+
+    // use switch statement for multiple options
+    switch(messagetype) {
+        case 'nomatch':
+            overlayMessage.textContent = 'Not a match!';
+            break; //stops the switch statement from running
+
+        case 'match':
+            overlayMessage.textContent = 'Match!';
+            break; //stops the switch statement from running
+    }
+
+    overlay.appendChild(overlayMessage);
+
+    // remove the overlay
+    overlay.addEventListener('click', removeOverlay);
+}
+
+// function that removes the overlay
+function removeOverlay() {
+    this.parentNode.removeChild(this);
 }
